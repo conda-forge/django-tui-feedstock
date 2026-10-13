@@ -17,12 +17,12 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - hatchling
+    - uv-build >=0.8.0,<0.14.0
     - pip
   run:
     - python >={{ python_min }}
-    - django >=3.2
-    - textual >=0.64.0
+    - django >=5.2
+    - textual >=6.0
     - trogon
 
 test:
