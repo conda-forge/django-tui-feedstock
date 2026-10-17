@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  name: django-tui
+  version: "24.5"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_tui-${{ version }}.tar.gz
+  sha256: a79b207806b5fd4dd390862b3d0f2447842278dd2d9631bf5c1bd7f770f7bde3
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - django >=3.2
+    - textual >=0.64.0
+    - trogon
+
+tests:
+  - python:
+      imports:
+        - django_tui
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: Inspect and run Django Commands in a text-based user interface (TUI).
+  license: MIT
+  license_file: LICENSE.txt
+  homepage: https://github.com/anze3db/django-tui
+
+extra:
+  recipe-maintainers:
+    - thewchan
