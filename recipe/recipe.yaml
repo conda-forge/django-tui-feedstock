@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: django-tui
-  version: "24.5"
+  version: "26.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_tui-${{ version }}.tar.gz
-  sha256: a79b207806b5fd4dd390862b3d0f2447842278dd2d9631bf5c1bd7f770f7bde3
+  sha256: 3826013a4403903d24d42e2424cb06bac56d0d55b4675d84a17103cdadb36fe8
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
