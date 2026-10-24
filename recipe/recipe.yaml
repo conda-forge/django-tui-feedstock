@@ -26,7 +26,6 @@ requirements:
     - python >=${{ python_min }}
     - django >=5.2
     - textual >=6.0
-    - trogon
 
 tests:
   - python:
